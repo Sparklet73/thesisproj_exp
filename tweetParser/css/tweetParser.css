@@ -1,0 +1,60 @@
+.tweet_link, .tweet_mention, footer a:hover {
+    text-decoration: none
+}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul,
+var, video {
+    border: 0;vertical-align: baseline;margin: 0;padding: 0
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block
+}
+body {
+    line-height: 1
+}
+ol, ul {
+    list-style: none
+}
+blockquote, q {
+    quotes: none
+}
+blockquote:after, blockquote:before, q:after, q:before {
+    content: none
+}
+h1 {
+    font-size: 40px
+}
+h2 {
+    font-size: 20px;
+    text-align: left
+}
+main {
+    padding: 10px 0;background: #ecf0f1
+}
+
+article {
+    background: #fff;position: relative;border-radius: 2px;top: -75px;padding: 25px 50px;box-shadow: 0 3px 6px rgba(0, 0, 0, .16),
+    0 3px 6px rgba(0, 0, 0, .23)
+}
+article h2 {padding: 0 0 25px;color: #34495e}
+article section{padding-bottom:15px}
+p{text-align:left;font-size:16px}
+table{border-collapse:collapse;border-spacing:0}
+th{font-weight:700}
+footer,header{background:#34495e}
+
+header {padding: 50px 0 75px}
+footer {padding: 50px}
+footer h4 {color: #fff;margin: 0;font-size: 18px}
+footer a, footer a:hover {color: #3498db}
+
+.iframe-container{display:table;margin:auto}
+.iframe-container iframe{display:inline-block;padding:0 7.5px;margin:auto}
+
+.tweet-container {height: 560px;}
+.tweet-container .row>div{padding:12px;margin:8px;border:0px solid #2E4272;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.26);border-radius: 3px}
+.tweet-container h2 {color: #34495e;padding-bottom:15px}.tweet_link{color:#1abc9c}
+.tweet_mention {color: #3947cc}
+.hashtag{color:#f39c12}
+.tweet_time{color:#7e7e7e;text-align:right;}
+.tweet_user{color: #00aced;text-align: left;font-size: 16px;font-weight: bold;float:left;}
+.rtcnt{text-align: right;}
