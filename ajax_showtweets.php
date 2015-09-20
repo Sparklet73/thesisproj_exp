@@ -42,7 +42,7 @@ try {
         if ($key == "Time") {
             foreach ($value as $v) {
                 array_push($time_tags, $v);
-                $sql = "SELECT `id` FROM `HKALLzh_main` WHERE `created_at` LIKE '" . $v . "%'";
+                $sql = "SELECT `id` FROM `TaipeiMayor_main` WHERE `created_at` LIKE '" . $v . "%'";
                 $stmt = $dbh->prepare($sql);
                 $stmt->execute();
                 while ($arrQue = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -59,7 +59,7 @@ try {
         if ($key == "Keywords") {
             foreach ($value as $v) {
                 array_push($keywords_tags, $v);
-                $sql = "SELECT `id` FROM `HKALLzh_main` WHERE `text` LIKE '%" . $v . "%'";
+                $sql = "SELECT `id` FROM `TaipeiMayor_main` WHERE `text` LIKE '%" . $v . "%'";
                 $stmt = $dbh->prepare($sql);
                 $stmt->execute();
                 while ($arrQue = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -76,7 +76,7 @@ try {
         if ($key == "Users") {
             foreach ($value as $v) {
                 array_push($users_tags, $v);
-                $sql = "SELECT `id` FROM `HKALLzh_main` WHERE `from_user_name` LIKE '" . $v . "'";
+                $sql = "SELECT `id` FROM `TaipeiMayor_main` WHERE `from_user_name` LIKE '" . $v . "'";
                 $stmt = $dbh->prepare($sql);
                 $stmt->execute();
                 while ($arrQue = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -93,7 +93,7 @@ try {
         if ($key == "Nouns") {
             foreach ($value as $v) {
                 array_push($nouns_tags, $v);
-                $sql = "SELECT `id` FROM `HKALLzh_main` WHERE `text` LIKE '%" . $v . "%'";
+                $sql = "SELECT `id` FROM `TaipeiMayor_main` WHERE `text` LIKE '%" . $v . "%'";
                 $stmt = $dbh->prepare($sql);
                 $stmt->execute();
                 while ($arrQue = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -124,7 +124,7 @@ try {
     }
 
 //    write into collections table
-    $sql_w_tag = "INSERT INTO `HKALLzh_collections`(`colID`,`userID`,`tweetID`,`tag`) VALUES (NULL, :uID, :tweetID, :tag)";
+    $sql_w_tag = "INSERT INTO `TaipeiMayor_collections`(`colID`,`userID`,`tweetID`,`tag`) VALUES (NULL, :uID, :tweetID, :tag)";
     $st_w_tag = $dbh->prepare($sql_w_tag);
     if ($st_w_tag) {
         $st_w_tag->bindParam(':uID', $intUID, \PDO::PARAM_INT);
@@ -146,7 +146,7 @@ try {
     $strNounsTag = implode("|", $nouns_tags);
 
 //    write history record
-    $sql_write = 'INSERT INTO `HKALLzh_history`(`historyID`, `userID`, `applied_at`, `time`, `time_w`, '
+    $sql_write = 'INSERT INTO `TaipeiMayor_history`(`historyID`, `userID`, `applied_at`, `time`, `time_w`, '
             . '`keywords`, `keywords_w`, `users`, `users_w`, `nouns`, `nouns_w`) '
             . 'VALUES (NULL, :userID, :applied_at, :time, :time_w, '
             . ':keywords, :keywords_w, :users, :users_w, :nouns, :nouns_w)';
@@ -170,7 +170,7 @@ try {
 
 //    return tweets to tweets display area
     $sql = "SELECT `id`, `from_user_name`, `from_user_description`, `created_at`, `text`, `retweet_count` 
-            FROM `HKALLzh_main` 
+            FROM `TaipeiMayor_main` 
             WHERE `id` IN (" . implode(',', array_keys($arrResult['rsTweet'])) . ")";
 
     $stmt = $dbh->prepare($sql);

@@ -15,7 +15,7 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = "SELECT DATE_FORMAT(`created_at`, '%Y/%m/%d') dd, count(*) cnt 
-            FROM `HKALLzh_main`
+            FROM `TaipeiMayor_main`
             WHERE 0 ";
     foreach ($arrNouns as $s) {
         $sql .= "or `text` like '%" . $s . "%'";

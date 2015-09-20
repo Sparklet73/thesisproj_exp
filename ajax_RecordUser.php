@@ -15,7 +15,7 @@ try {
     $dbh = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $dbuser, $dbpass);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    $sql = 'INSERT INTO `HKALLzh_experiment`(`userID`, `userName`) '
+    $sql = 'INSERT INTO `TaipeiMayor_experiment`(`userID`, `userName`) '
             . 'VALUES (:userID, :userName)';
     $record = $dbh->prepare($sql);
     if ($record) {

@@ -15,7 +15,7 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = "SELECT DATE_FORMAT(`created_at`, '%Y/%m/%d') dd, count(*) cnt
-            FROM `HKALLzh_mentions` 
+            FROM `TaipeiMayor_mentions` 
             WHERE `to_user` LIKE '" . $strUser . "' GROUP BY dd";
 
     $stmt = $dbh->prepare($sql);

@@ -17,7 +17,7 @@ try {
     $dbh = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $dbuser, $dbpass);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    $sql = "SELECT `tag` FROM `HKALLzh_collections` "
+    $sql = "SELECT `tag` FROM `TaipeiMayor_collections` "
             . "WHERE `userID` = ". $intUID ." "
             . "and `tweetID` = ". $intTID ." GROUP BY `tag`";
     $tweet_tag = $dbh->prepare($sql);
@@ -31,7 +31,7 @@ try {
     $strTags = implode("|", $arrTags);
     
 //    save material tweet
-    $sql_write = "INSERT INTO `HKALLzh_materials`(`materialID`, `userID`, `tweetID`, `tags`) VALUES (NULL, :userID, :tweetID, :tags)";
+    $sql_write = "INSERT INTO `TaipeiMayor_materials`(`materialID`, `userID`, `tweetID`, `tags`) VALUES (NULL, :userID, :tweetID, :tags)";
     $stmt = $dbh->prepare($sql_write);
     if ($stmt) {
         $stmt->bindParam(':userID', $intUID, \PDO::PARAM_INT);

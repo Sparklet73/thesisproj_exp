@@ -9,15 +9,15 @@ try {
     $dbh = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $dbuser, $dbpass);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "SELECT `HKALLzh_main`.`text` "
-            . "FROM `HKALLzh_materials`, `HKALLzh_main` "
-            . "WHERE `userID` = " . $intUID . " AND `HKALLzh_main`.`id` = `HKALLzh_materials`.`tweetID`";
+    $sql = "SELECT `TaipeiMayor_main`.`text` "
+            . "FROM `TaipeiMayor_materials`, `TaipeiMayor_main` "
+            . "WHERE `userID` = " . $intUID . " AND `TaipeiMayor_main`.`id` = `TaipeiMayor_materials`.`tweetID`";
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
     $materialContent = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $sql_tags = "SELECT `tags` FROM `HKALLzh_materials`"
+    $sql_tags = "SELECT `tags` FROM `TaipeiMayor_materials`"
             . "WHERE `userID` = " . $intUID . " GROUP BY `tags`";
     $stmt_tags = $dbh->prepare($sql_tags);
     $stmt_tags->execute();
@@ -41,7 +41,7 @@ try {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Materials Room</title>
+        <title>Materials Room - TaipeiMayor</title>
         <meta charset="utf-8">
         <script src="jquery/jquery-2.1.3.min.js"></script>
         <script src="jquery/jquery-ui.min.js"></script>
@@ -122,7 +122,7 @@ try {
                             <li><a href="history.php" target = '_blank'>History</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <p class="navbar-text">Dataset: HKALLzh --- 497,519 tweets (from 2014-08-24 22:06:20 to 2014-12-17 13:55:22)</p>
+                            <p class="navbar-text">Dataset: TaipeiMayor --- 144,572 tweets (from 2014-08-05 07:05:03 to 2014-12-17 15:29:00)</p>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div> <!-- /.container-fluid -->

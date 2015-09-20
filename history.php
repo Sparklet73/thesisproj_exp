@@ -9,11 +9,11 @@ try {
     $dbh = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $dbuser, $dbpass);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     if($bm){
-        $sql = "SELECT * FROM `HKALLzh_history` WHERE `userID` =" . $intUID . " AND `bookmarked` = 1"
-            . " ORDER BY `HKALLzh_history`.`applied_at` DESC";
+        $sql = "SELECT * FROM `TaipeiMayor_history` WHERE `userID` =" . $intUID . " AND `bookmarked` = 1"
+            . " ORDER BY `TaipeiMayor_history`.`applied_at` DESC";
     }else{
-        $sql = "SELECT * FROM `HKALLzh_history` WHERE `userID` =" . $intUID
-            . " ORDER BY `HKALLzh_history`.`applied_at` DESC";
+        $sql = "SELECT * FROM `TaipeiMayor_history` WHERE `userID` =" . $intUID
+            . " ORDER BY `TaipeiMayor_history`.`applied_at` DESC";
     }
     
     $stmt = $dbh->prepare($sql);
@@ -35,7 +35,7 @@ try {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>History</title>
+        <title>History - TaipeiMayor</title>
         <meta charset="utf-8">
         <script src="jquery/jquery-2.1.3.min.js"></script>
         <script src="jquery/jquery-ui.min.js"></script>
@@ -113,7 +113,7 @@ try {
                             <li class="active"><a href="history.php">History</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <p class="navbar-text">Dataset: HKALLzh --- 497,519 tweets (from 2014-08-24 22:06:20 to 2014-12-17 13:55:22)</p>
+                            <p class="navbar-text">Dataset: TaipeiMayor --- 144,572 tweets (from 2014-08-05 07:05:03 to 2014-12-17 15:29:00)</p>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div> <!-- /.container-fluid -->

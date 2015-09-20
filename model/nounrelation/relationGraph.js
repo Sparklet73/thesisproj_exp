@@ -15,26 +15,9 @@ $(document).ready(function () {
             type: 'canvas'
         }
     });
-
-//    sigma.parsers.json('rt10noun.json',
-//            s,
-//            function () {
-//                s.settings({
-//                    defaultLabelSize: 18,
-//                    font: "微軟正黑體",
-//                    labelHoverBGColor: 'node',
-//                    defaultLabelHoverColor: '#000',
-//                    labelHoverShadow: 'node',
-//                    labelThreshold: 3
-//                });
-//                s.refresh();
-//            }
-//    );
-
-
     db = new sigma.plugins.neighborhoods();
 
-    db.load('model/nounrelation/rt10noun.json', function () {
+    db.load('model/nounrelation/tpeNouns.json', function () {
         // Out function to initialize sigma on a new neighborhood:
         function refreshGraph(centerNodeId) {
             s.camera.goTo({
@@ -44,7 +27,7 @@ $(document).ready(function () {
                 ratio: 1
             });
             s.settings({
-                labelThreshold: 1
+                labelThreshold: 4
             });
             s.graph.clear();
 
@@ -92,16 +75,16 @@ $(document).ready(function () {
     });
 
     $(".btn-reset-graph").click(function () {
-        sigma.parsers.json('model/nounrelation/rt10noun.json',
+        sigma.parsers.json('model/nounrelation/tpeNouns.json',
                 s,
                 function () {
                     s.settings({
                         defaultLabelSize: 18,
-                        font: "微軟正黑體",
+                        font: "Arial Unicode MS",
                         labelHoverBGColor: 'node',
                         defaultLabelHoverColor: '#000',
                         labelHoverShadow: 'node',
-                        labelThreshold: 3
+                        labelThreshold: 4
                     });
                     s.camera.goTo({
                         x: 0,
@@ -115,16 +98,16 @@ $(document).ready(function () {
     });
 
     $('ul.nav a').on('shown.bs.tab', function (e) {
-        sigma.parsers.json('model/nounrelation/rt10noun.json',
+        sigma.parsers.json('model/nounrelation/tpeNouns.json',
                 s,
                 function () {
                     s.settings({
                         defaultLabelSize: 18,
-                        font: "微軟正黑體",
+                        font: "Arial Unicode MS",
                         labelHoverBGColor: 'node',
                         defaultLabelHoverColor: '#000',
                         labelHoverShadow: 'node',
-                        labelThreshold: 3
+                        labelThreshold: 4
                     });
                     s.camera.goTo({
                         x: 0,

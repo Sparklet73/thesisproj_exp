@@ -18,9 +18,9 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     if ($boolBM == TRUE) {
-        $sql = "UPDATE `HKALLzh_history` SET `bookmarked` = 1 WHERE `historyID` = " . $intHID;
+        $sql = "UPDATE `TaipeiMayor_history` SET `bookmarked` = 1 WHERE `historyID` = " . $intHID;
     } else if ($boolBM == FALSE) {
-        $sql = "UPDATE `HKALLzh_history` SET `bookmarked` = 0 WHERE `historyID` = " . $intHID;
+        $sql = "UPDATE `TaipeiMayor_history` SET `bookmarked` = 0 WHERE `historyID` = " . $intHID;
     }
     $stmt = $dbh->prepare($sql);
     $stmt->execute();

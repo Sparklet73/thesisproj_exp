@@ -26,15 +26,15 @@ try {
 
     $strSql = array();
     foreach ($arrTagsGroup["tag"] as $tag) {
-        $sq = '`HKALLzh_materials`.`tags` LIKE "%' . $tag . '%"';
+        $sq = '`TaipeiMayor_materials`.`tags` LIKE "%' . $tag . '%"';
         array_push($strSql, $sq);
     }
     
-    $sql = "SELECT `HKALLzh_main`.`text`
-            FROM `HKALLzh_materials`, `HKALLzh_main`
+    $sql = "SELECT `TaipeiMayor_main`.`text`
+            FROM `TaipeiMayor_materials`, `TaipeiMayor_main`
             WHERE (" . implode(" OR ", $strSql) .
-            ") and `HKALLzh_materials`.`tweetID`=`HKALLzh_main`.`id` 
-            and `HKALLzh_materials`.`userID` = " . $intUID;
+            ") and `TaipeiMayor_materials`.`tweetID`=`TaipeiMayor_main`.`id` 
+            and `TaipeiMayor_materials`.`userID` = " . $intUID;
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 

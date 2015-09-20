@@ -12,7 +12,7 @@ try {
 
     $t_w = $k_w = $u_w = $n_w = 1;
     if ($reHistoryID) {
-        $sql = "SELECT * FROM `HKALLzh_history` WHERE `userID` =" . $intUID
+        $sql = "SELECT * FROM `TaipeiMayor_history` WHERE `userID` =" . $intUID
                 . " AND `historyID` = " . $reHistoryID;
 
         $stmt = $dbh->prepare($sql);
@@ -33,7 +33,7 @@ try {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Browsing Room</title>
+        <title>Browsing Room - TaipeiMayor</title>
         <meta charset="utf-8">
         <script src="jquery/jquery-2.1.3.min.js"></script>
         <script src="jquery/jquery-ui.min.js"></script>
@@ -191,7 +191,7 @@ try {
                             <li><a href="history.php" target = '_blank'>History</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <p class="navbar-text">Dataset: HKALLzh --- 497,519 tweets (from 2014-08-24 22:06:20 to 2014-12-17 13:55:22)</p>
+                            <p class="navbar-text">Dataset: TaipeiMayor --- 144,572 tweets (from 2014-08-05 07:05:03 to 2014-12-17 15:29:00)</p>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div> <!-- /.container-fluid -->
@@ -444,6 +444,7 @@ try {
             $(document).ready(function () {
                 $("#tweetsDisplay").on("click", "a.btn-collect", function () {
                     saveMaterial(userID, $(this).attr("id"));
+                    $(this).removeClass('btn-collect').addClass('btn-collected');
                 });
             });
         </script>
@@ -468,24 +469,26 @@ try {
                             <div class="tab-pane fade" id="tab2primary">
                                 <div class="col-md-10">
                                     <select id="week-keywords">
-                                        <option selected value="week1">week 1 - 2014-8-24 ---</option>
-                                        <option value="week2">week 2 - 2014-8-25 to 2014-8-31</option>
-                                        <option value="week3">week 3 - 2014-9-1 to 2014-9-7</option>
-                                        <option value="week4">week 4 - 2014-9-8 to 2014-9-14</option>
-                                        <option value="week5">week 5 - 2014-9-15 to 2014-9-21</option>
-                                        <option value="week6">week 6 - 2014-9-22 to 2014-9-28</option>
-                                        <option value="week7">week 7 - 2014-9-29 to 2014-10-5</option>
-                                        <option value="week8">week 8 - 2014-10-6 to 2014-10-12</option>
-                                        <option value="week9">week 9 - 2014-10-13 to 2014-10-19</option>
-                                        <option value="week10">week 10 - 2014-10-20 to 2014-10-26</option>
-                                        <option value="week11">week 11 - 2014-10-27 to 2014-11-2</option>
-                                        <option value="week12">week 12 - 2014-11-3 to 2014-11-9</option>
-                                        <option value="week13">week 13 - 2014-11-10 to 2014-11-16</option>
-                                        <option value="week14">week 14 - 2014-11-17 to 2014-11-23</option>
-                                        <option value="week15">week 15 - 2014-11-24 to 2014-11-30</option>
-                                        <option value="week16">week 16 - 2014-12-1 to 2014-12-7</option>
-                                        <option value="week17">week 17 - 2014-12-8 to 2014-12-14</option>
-                                        <option value="week18">week 18 - 2014-12-15 to 2014-12-17</option>
+                                        <option selected value="week1">week 1 - 2014-8-05 to 2014-8-10</option>
+                                        <option value="week2">week 2 - 2014-8-11 to 2014-8-17</option>
+                                        <option value="week2">week 3 - 2014-8-18 to 2014-8-24</option>
+                                        <option value="week2">week 4 - 2014-8-25 to 2014-8-31</option>
+                                        <option value="week3">week 5 - 2014-9-1 to 2014-9-7</option>
+                                        <option value="week4">week 6 - 2014-9-8 to 2014-9-14</option>
+                                        <option value="week5">week 7 - 2014-9-15 to 2014-9-21</option>
+                                        <option value="week6">week 8 - 2014-9-22 to 2014-9-28</option>
+                                        <option value="week7">week 9 - 2014-9-29 to 2014-10-5</option>
+                                        <option value="week8">week 10 - 2014-10-6 to 2014-10-12</option>
+                                        <option value="week9">week 11 - 2014-10-13 to 2014-10-19</option>
+                                        <option value="week10">week 12 - 2014-10-20 to 2014-10-26</option>
+                                        <option value="week11">week 13 - 2014-10-27 to 2014-11-2</option>
+                                        <option value="week12">week 14 - 2014-11-3 to 2014-11-9</option>
+                                        <option value="week13">week 15 - 2014-11-10 to 2014-11-16</option>
+                                        <option value="week14">week 16 - 2014-11-17 to 2014-11-23</option>
+                                        <option value="week15">week 17 - 2014-11-24 to 2014-11-30</option>
+                                        <option value="week16">week 18 - 2014-12-1 to 2014-12-7</option>
+                                        <option value="week17">week 19 - 2014-12-8 to 2014-12-14</option>
+                                        <option value="week18">week 20 - 2014-12-15 to 2014-12-17</option>
                                     </select>
                                     <script>
                                         $('#week-keywords').on('change', function () {
@@ -520,7 +523,7 @@ try {
                             </div>
                             <div class="tab-pane fade" id="tab4primary">
                                 <div class="col-md-11" style="padding:0px;">
-                                    <ul>These noun-points were extracted from the tweets which RT count > 10.</ul>
+                                    <ul>These noun-points were extracted from all tweets.</ul>
                                     <ul>The relation are about the co-occurrence in same tweets.</ul> 
                                     <ul>Click the point to explore their relation and tweets count below.</ul>
                                     <div id="relationGraph"></div>
