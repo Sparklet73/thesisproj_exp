@@ -58,8 +58,13 @@ function parseTags(userID, strDatetime, aryLists, tv, kv, uv, nv) {
             makeTweetParsed();
             NProgress.done();
         } else {
-            showMessage('danger', data.rsTweet);
+            NProgress.done();
+            alert("These tags are not found in this dataset.");
         }
+    });
+    jqxhr.fail(function (){
+        NProgress.done();
+        alert("These tags are not found in this dataset.");
     });
 }
 
