@@ -8,14 +8,14 @@ $bm = isset($_GET['bm']);
 try {
     $dbh = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $dbuser, $dbpass);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    if($bm){
+    if ($bm) {
         $sql = "SELECT * FROM `TaipeiMayor_history` WHERE `userID` =" . $intUID . " AND `bookmarked` = 1"
-            . " ORDER BY `TaipeiMayor_history`.`applied_at` DESC";
-    }else{
+                . " ORDER BY `TaipeiMayor_history`.`applied_at` DESC";
+    } else {
         $sql = "SELECT * FROM `TaipeiMayor_history` WHERE `userID` =" . $intUID
-            . " ORDER BY `TaipeiMayor_history`.`applied_at` DESC";
+                . " ORDER BY `TaipeiMayor_history`.`applied_at` DESC";
     }
-    
+
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
@@ -122,9 +122,9 @@ try {
                 <h4 style="margin-top:60px;"></h4>
                 <b style="color:#686868;">Here are the history you have explored. You can also toggle the button on the right to just see bookmarks.</b>
                 <?php
-                if($bm){
+                if ($bm) {
                     echo '<a name="btn_filterBM" class="btn btn-default btn-filterBM" href="history.php">HISTORY</a>';
-                }else{
+                } else {
                     echo '<a name="btn_filterBM" class="btn btn-success btn-filterBM" href="history.php?bm">BOOKMARK</a>';
                 }
                 ?>
@@ -173,10 +173,10 @@ try {
                 </div>
                 <script>
                     $(document).ready(function () {
-                        $("#history").on("click", ".history_item", function(){
+                        $("#history").on("click", ".history_item", function () {
                             var reHID = $(this).attr("id");
                             reHID = reHID.replace("hs_", "");
-                            location.href = "browsing.php?reHID=" + reHID ;
+                            location.href = "browsing.php?reHID=" + reHID;
                         });
                     });
                 </script>
