@@ -9,9 +9,10 @@ try {
     $dbh = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $dbuser, $dbpass);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "SELECT `TaipeiMayor_main`.`text` "
+    $sql = "SELECT `TaipeiMayor_main`.`text`,`TaipeiMayor_main`.`created_at` tt "
             . "FROM `TaipeiMayor_materials`, `TaipeiMayor_main` "
-            . "WHERE `userID` = " . $intUID . " AND `TaipeiMayor_main`.`id` = `TaipeiMayor_materials`.`tweetID`";
+            . "WHERE `userID` = " . $intUID . " AND `TaipeiMayor_main`.`id` = `TaipeiMayor_materials`.`tweetID` "
+            . "GROUP BY `text` ORDER BY tt";
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
@@ -136,7 +137,7 @@ try {
                         <ol class="simple_with_animation vertical" style="height:560px;overflow-y:auto;">
                             <?php
                             foreach ($materialContent as $content) {
-                                echo "<li>" . $content['text'] . "</li>";
+                                echo "<li>" . $content['text'] . " <p style='text-align:right;color:#39AF26'>". $content['tt']."</p></li>";
                             }
                             ?>
                         </ol>
@@ -299,4 +300,4 @@ try {
     </body>
 </html>
 <?php
-unseet($dbh);
+unset($dbh);
