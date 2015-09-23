@@ -109,17 +109,18 @@ function changeWeekKeywords(week) {
         var tag = "";
         params.event = "[original event]";
         for (var node in nodes) {
-            if(nodes[node].id===parseInt(params.nodes[0]))
+            if (nodes[node].id === parseInt(params.nodes[0]))
                 tag = nodes[node].label;
         }
         $('#TagsArea').multiSelect('addOption', {value: "Keywords|" + tag, text: tag, index: 0, nested: 'Keywords'});
 //            防止有重複的tags
-            var found = [];
-            $("#TagsArea option").each(function () {
-                if ($.inArray(this.value, found) !== -1)
-                    $(this).remove();
-                found.push(this.value);
-            });
+        var found = [];
+        $("#TagsArea option").each(function () {
+            if ($.inArray(this.value, found) !== -1)
+                $(this).remove();
+            found.push(this.value);
+        });
+        KeywordShowNumOfTweets(tag);
     });
 }
 
@@ -151,17 +152,18 @@ $(document).ready(function () {
         var tag = "";
         params.event = "[original event]";
         for (var node in nodes) {
-            if(nodes[node].id===parseInt(params.nodes[0]))
+            if (nodes[node].id === parseInt(params.nodes[0]))
                 tag = nodes[node].label;
         }
         $('#TagsArea').multiSelect('addOption', {value: "Keywords|" + tag, text: tag, index: 0, nested: 'Keywords'});
 //            防止有重複的tags
-            var found = [];
-            $("#TagsArea option").each(function () {
-                if ($.inArray(this.value, found) !== -1)
-                    $(this).remove();
-                found.push(this.value);
-            });
+        var found = [];
+        $("#TagsArea option").each(function () {
+            if ($.inArray(this.value, found) !== -1)
+                $(this).remove();
+            found.push(this.value);
+        });
+        KeywordShowNumOfTweets(tag);
     });
 });
         
